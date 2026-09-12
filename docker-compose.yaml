@@ -1,0 +1,33 @@
+services:
+  floci:
+    image: floci/floci:latest
+    container_name: floci
+    ports:
+      - "4566:4566"
+    environment:
+      - FLOCI_STORAGE_MODE=hybrid
+      - FLOCI_STORAGE_PERSISTENT_PATH=/app/data
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "floci-data:/app/data"
+    restart: unless-stopped
+
+  floci-ui:
+    image: floci/floci-ui:latest
+    container_name: floci-ui
+    ports:
+      - "4500:4500"
+      - "4501:4501"
+    environment:
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_REGION=us-east-1
+      - FLOCI_ENDPOINT=http://floci:4566
+      - AWS_ENDPOINT_URL=http://floci:4566
+    depends_on:
+      - floci
+    restart: unless-stopped
+
+volumes:
+  floci-data:

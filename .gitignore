@@ -1,0 +1,15 @@
+# Environment & secrets
+.env
+.env.*.local
+.mise.local.toml
+
+# Toolchains & Cache
+__pycache__/
+*.pyc
+.terraform/
+*.tfstate*
+*.tfstate.backup
+
+# OS & Editor
+.DS_Store
+Thumbs.db
