@@ -1,6 +1,6 @@
 # Floci Local Cloud Setup
 
-A clean, reproducible setup for running the [Floci](https://github.com/floci-io/floci) local AWS cloud emulator and web dashboard using Docker Compose, Makefile, and `mise`.
+A clean, reproducible setup for Floci local AWS cloud emulator and Floci UI with Docker Compose, Makefile, and `mise`.
 
 ---
 
